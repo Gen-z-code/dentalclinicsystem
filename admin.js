@@ -50,10 +50,10 @@
             <div class="login-container">
                 <div class="clay-panel" style="width:100%; max-width:400px; text-align:center;">
                     <i data-lucide="lock" style="width:48px;height:48px;color:var(--primary);margin-bottom:1rem;"></i>
-                    <h2 style="margin-bottom:2rem;">Admin Secure Login</h2>
+                    <h2 style="margin-bottom:2rem;">Sparkle Admin Secure Login</h2>
                     <form id="login-form">
-                        <input type="email" id="email" class="clay-input" placeholder="Admin Email" required value="admin@lumasmile.example">
-                        <input type="password" id="password" class="clay-input" placeholder="Password" required value="Admin@123">
+                        <input type="email" id="email" class="clay-input" placeholder="Admin Email" required>
+                        <input type="password" id="password" class="clay-input" placeholder="Password" required>
                         <button type="submit" class="clay-btn">Login to Dashboard</button>
                     </form>
                 </div>
@@ -71,7 +71,7 @@
     const renderLayout = (contentHTML, activeTab) => {
         root.innerHTML = `
             <div class="sidebar">
-                <h2><i data-lucide="smile"></i> Luma Admin</h2>
+                <h2><i data-lucide="sparkles"></i> Sparkle Admin</h2>
                 <a href="#dashboard" class="${activeTab==='dashboard'?'active':''}"><i data-lucide="layout-dashboard"></i> Dashboard</a>
                 <a href="#appointments" class="${activeTab==='appointments'?'active':''}"><i data-lucide="calendar"></i> Appointments</a>
                 <a href="#inquiries" class="${activeTab==='inquiries'?'active':''}"><i data-lucide="message-square"></i> Inquiries</a>
@@ -94,7 +94,7 @@
                 <div class="stat-card"><h3>${stats.newInquiries}</h3><p>Unread Inquiries</p></div>
                 <div class="stat-card"><h3>${stats.total}</h3><p>Total Lifetime</p></div>
             </div>
-            <div class="clay-panel"><h3>Welcome back to LumaSmile Admin</h3><p style="margin-top:1rem; color:#6b7280;">Use the sidebar to manage your daily operations. All data is live and secured.</p></div>
+            <div class="clay-panel"><h3>Welcome back to Sparkle Dental Admin</h3><p style="margin-top:1rem; color:#6b7280;">Use the sidebar to manage your daily operations. All data is live and secured.</p></div>
         `;
     };
 
@@ -145,7 +145,6 @@
         document.getElementById('loader').outerHTML = `<table><thead><tr><th>Contact</th><th>Category</th><th>Message</th><th>Status</th><th>Action</th></tr></thead><tbody>${rows}</tbody></table>`;
     };
 
-    // Global Action Handlers
     window.updateApptStatus = async (id, status) => {
         if(!status || !confirm(`Update status to ${status}?`)) return loadAppointments();
         await apiFetch(`/api/admin/appointments/${id}`, { method: 'PATCH', body: JSON.stringify({ status }) });
