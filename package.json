@@ -1,7 +1,7 @@
 {
-  "name": "lumasmile-dental-booking-upgraded",
+  "name": "sparkle-dental-clinic-booking",
   "version": "2.0.0",
-  "description": "Premium Full-stack dental clinic booking system",
+  "description": "Premium Full-stack dental clinic booking system for Sparkle Dental",
   "main": "server.js",
   "engines": {
     "node": "24.x"
