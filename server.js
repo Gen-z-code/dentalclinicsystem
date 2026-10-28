@@ -12,7 +12,7 @@ const app = express();
 // --- VERCEL ROUTING FIX ---
 app.use((req, res, next) => {
     if (req.query.vpath !== undefined) {
-        req.url = '/' + req.query.vpath; // Original URL ko Express ke liye wapas set karein
+        req.url = '/' + req.query.vpath;
         delete req.query.vpath;
     } else if (req.url === '/server.js') {
         req.url = req.headers['x-invoke-path'] || '/';
@@ -51,7 +51,7 @@ let cachedDb = null;
 const connectDB = async () => {
     if (cachedDb && mongoose.connection.readyState === 1) return;
     try {
-        await mongoose.connect(process.env.MONGODB_URI, { dbName: process.env.MONGODB_DB_NAME || 'lumasmile', maxPoolSize: 10 });
+        await mongoose.connect(process.env.MONGODB_URI, { dbName: process.env.MONGODB_DB_NAME || 'sparkledental', maxPoolSize: 10 });
         cachedDb = true;
         console.log('MongoDB Connected successfully.');
     } catch (error) { console.error('MongoDB Connection Error:', error); throw error; }
@@ -68,7 +68,7 @@ const Service = mongoose.models.Service || mongoose.model('Service', ServiceSche
 const DentistSchema = new mongoose.Schema({
     name: { type: String, required: true }, slug: { type: String, required: true, unique: true },
     specialty: String, bio: String, imageUrl: String, isActive: { type: Boolean, default: true },
-    workingHours: { start: { type: String, default: '09:00' }, end: { type: String, default: '19:00' } }
+    workingHours: { start: { type: String, default: '10:00' }, end: { type: String, default: '20:00' } }
 }, { timestamps: true });
 const Dentist = mongoose.models.Dentist || mongoose.model('Dentist', DentistSchema);
 
@@ -98,21 +98,19 @@ const initializeData = async () => {
     try {
         if (await Admin.countDocuments() === 0) {
             const hash = await bcrypt.hash(process.env.ADMIN_PASSWORD || 'Admin@123', 10);
-            await Admin.create({ email: process.env.ADMIN_EMAIL || 'admin@lumasmile.example', passwordHash: hash });
+            await Admin.create({ email: process.env.ADMIN_EMAIL || 'admin@sparkledental.in', passwordHash: hash });
         }
         if (await Service.countDocuments() === 0) {
             await Service.insertMany([
-                { name: 'General Checkup', slug: 'general-checkup', description: 'Comprehensive oral examination and consultation.', price: 499, duration: 30, icon: 'stethoscope' },
-                { name: 'Teeth Cleaning', slug: 'teeth-cleaning', description: 'Professional plaque removal and polishing.', price: 999, duration: 45, icon: 'sparkles' },
-                { name: 'Teeth Whitening', slug: 'teeth-whitening', description: 'Brighten your smile safely with advanced technology.', price: 2499, duration: 60, icon: 'smile' },
-                { name: 'Root Canal', slug: 'root-canal', description: 'Advanced endodontic treatment to save your natural tooth.', price: 3999, duration: 90, icon: 'activity' }
+                { name: 'Dental Implants', slug: 'dental-implants', description: 'Permanent and natural-looking tooth replacement solutions.', price: 15000, duration: 60, icon: 'layers' },
+                { name: 'General Checkup', slug: 'general-checkup', description: 'Comprehensive oral examination and consultation.', price: 500, duration: 30, icon: 'stethoscope' },
+                { name: 'Teeth Cleaning', slug: 'teeth-cleaning', description: 'Professional plaque removal and polishing for oral hygiene.', price: 1000, duration: 45, icon: 'sparkles' },
+                { name: 'Root Canal', slug: 'root-canal', description: 'Advanced endodontic treatment to save your natural tooth.', price: 4000, duration: 90, icon: 'activity' }
             ]);
         }
         if (await Dentist.countDocuments() === 0) {
             await Dentist.insertMany([
-                { name: 'Dr. Aanya Sharma', slug: 'dr-aanya-sharma', specialty: 'General Dentistry', bio: 'BDS, MDS. 10+ years creating perfect smiles with gentle care.', imageUrl: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&q=80' },
-                { name: 'Dr. Rohan Mehta', slug: 'dr-rohan-mehta', specialty: 'Orthodontics', bio: 'Expert in modern braces, invisible aligners, and bite correction.', imageUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=500&q=80' },
-                { name: 'Dr. Priya Verma', slug: 'dr-priya-verma', specialty: 'Pediatric Dentistry', bio: 'Specialized gentle care making dental visits fun for our youngest patients.', imageUrl: 'https://images.unsplash.com/photo-1594824432258-208b06c64147?w=500&q=80' }
+                { name: 'Dr. Rohit Shah', slug: 'dr-rohit-shah', specialty: 'Implantologist & General Dentist', bio: 'Extremely skilled and professional. Outstanding at making every visit comfortable while educating patients on oral hygiene.', imageUrl: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=500&q=80' }
             ]);
         }
     } catch (e) { console.error('Seeding error:', e.message); }
@@ -178,7 +176,7 @@ app.post('/api/appointments', rateLimiter(5, 60000), async (req, res) => {
         const { serviceId, dentistId, date, startTime, patientName, phone, email, patientNotes } = req.body;
         if (!serviceId || !dentistId || !date || !startTime || !patientName || !phone || !email) return res.status(400).json({ error: 'All fields are required.' });
         
-        const reference = 'LUMA-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+        const reference = 'SPKL-' + Math.random().toString(36).substring(2, 8).toUpperCase();
         const appointment = await Appointment.create({ reference, serviceId, dentistId, date, startTime, patientName, phone, email, patientNotes });
         res.status(201).json({ success: true, reference: appointment.reference });
     } catch (error) {
@@ -199,7 +197,7 @@ app.post('/api/inquiries', rateLimiter(3, 60000), async (req, res) => {
 app.get('/admin', (req, res) => {
     res.send(`
         <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="color-scheme" content="light"><title>LumaSmile Admin</title><script src="https://unpkg.com/lucide@latest"></script></head>
+        <meta name="color-scheme" content="light"><title>Sparkle Dental Admin</title><script src="https://unpkg.com/lucide@latest"></script></head>
         <body style="margin:0; font-family:'Inter', sans-serif; background:#FFFDF8; color:#243047;"><div id="admin-root"></div><script src="/admin.js"></script></body></html>
     `);
 });
