@@ -9,6 +9,18 @@ const helmet = require('helmet');
 
 const app = express();
 
+// --- VERCEL ROUTING FIX ---
+app.use((req, res, next) => {
+    if (req.query.vpath !== undefined) {
+        req.url = '/' + req.query.vpath; // Original URL ko Express ke liye wapas set karein
+        delete req.query.vpath;
+    } else if (req.url === '/server.js') {
+        req.url = req.headers['x-invoke-path'] || '/';
+    }
+    next();
+});
+// ---------------------------
+
 // --- PLATFORM & SECURITY MIDDLEWARE ---
 app.set('view engine', 'ejs');
 app.set('views', __dirname);
