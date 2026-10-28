@@ -231,7 +231,7 @@
                 <div class="clay-card">
                     <form id="availability-form" onsubmit="event.preventDefault(); fetchSlots();">
                         <label style="font-weight:600; margin-bottom:0.5rem; display:block;">1. Select Service</label>
-                        <select id="book-service" class="clay-select" required>
+                        <select id="book-service" class="clay-select" required onchange="resetSlots()">
                             <option value="">Choose a service...</option>
                             <% services.forEach(s => { %><option value="<%= s._id %>"><%= s.name %></option><% }) %>
                         </select>
@@ -349,6 +349,7 @@
         }
 
         async function fetchSlots() {
+            const service = document.getElementById('book-service').value;
             const date = document.getElementById('book-date').value;
             const dentistId = document.getElementById('book-dentist').value;
             const wrapper = document.getElementById('slots-wrapper');
@@ -357,6 +358,13 @@
             const btn = document.getElementById('continue-btn');
             
             if(!date || !dentistId) return;
+
+            // Extra Validation: Ensure Service is selected before fetching time
+            if(!service) {
+                showToast('Please select a Dental Service first.', true);
+                document.getElementById('book-date').value = ''; // Reset date to force sequence
+                return;
+            }
             
             resetSlots();
             wrapper.style.display = 'block';
@@ -390,6 +398,12 @@
             const d = document.getElementById('book-dentist').value;
             const dt = document.getElementById('book-date').value;
             const t = document.getElementById('selected-time').value;
+
+            // FINAL VALIDATION BEFORE MOVING TO NEXT PAGE
+            if (!s) return showToast('Please select a Dental Service first.', true);
+            if (!d) return showToast('Please select a Dentist.', true);
+            if (!dt || !t) return showToast('Please select Date and Time.', true);
+
             window.location.href = `/patient-information?service=${s}&dentist=${d}&date=${dt}&time=${t}`;
         }
 
@@ -397,11 +411,19 @@
         if (finalForm) {
             finalForm.onsubmit = async (e) => {
                 e.preventDefault();
+                
+                // Double check backend required fields on submit
+                const serviceId = document.getElementById('f-service').value;
+                if(!serviceId) {
+                    showToast('Error: Service data lost. Please start booking again.', true);
+                    return;
+                }
+
                 const btn = document.getElementById('f-submit');
                 btn.disabled = true; btn.textContent = 'Processing...';
 
                 const payload = {
-                    serviceId: document.getElementById('f-service').value,
+                    serviceId: serviceId,
                     dentistId: document.getElementById('f-dentist').value,
                     date: document.getElementById('f-date').value,
                     startTime: document.getElementById('f-time').value,
