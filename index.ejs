@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- PREVENTS BROWSER DARK MODE EXTENSIONS FROM BREAKING THE CLAYMORPHISM UI -->
     <meta name="color-scheme" content="light">
     
-    <title>LumaSmile Dental Studio | Premium Dental Care</title>
-    <meta name="description" content="Book your dental appointment at LumaSmile Dental Studio. Fictional demonstration environment.">
+    <title>Sparkle Dental Clinic and Implant Centre | Santacruz East, Mumbai</title>
+    <meta name="description" content="Book your dental appointment at Sparkle Dental Clinic and Implant Centre, Mumbai. Experienced care by Dr. Rohit Shah.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -23,7 +22,6 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); overflow-x: hidden; line-height: 1.6; }
-        .demo-notice { background: var(--highlight); color: #000; text-align: center; padding: 0.5rem; font-weight: 600; font-size: 0.875rem; }
         
         h1, h2, h3 { font-weight: 700; line-height: 1.2; margin-bottom: 1rem; color: var(--text); }
         h1 { font-size: clamp(2.5rem, 5vw, 4rem); } h2 { font-size: clamp(2rem, 4vw, 3rem); }
@@ -68,22 +66,21 @@
         .toast.error { background: var(--accent); color: var(--text); }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; } /* Simplified mobile for demo */
+            .nav-links { display: none; } 
             .grid-2 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="demo-notice">DEMONSTRATION ONLY: This is a fictional clinic portfolio project. No real appointments will be booked.</div>
     
     <nav>
         <div class="container nav-content">
-            <a href="/" class="logo"><i data-lucide="smile"></i> LumaSmile</a>
+            <a href="/" class="logo"><i data-lucide="sparkles"></i> Sparkle Dental</a>
             <div class="nav-links">
                 <a href="/">Home</a>
                 <a href="/about">About</a>
                 <a href="/services">Services</a>
-                <a href="/dentists">Dentists</a>
+                <a href="/dentists">Our Doctors</a>
                 <a href="/inquiry">Contact</a>
                 <a href="/book-appointment" class="clay-btn" style="padding: 0.5rem 1.5rem;">Book Visit</a>
             </div>
@@ -94,9 +91,9 @@
         <% if (page === 'home') { %>
             <section class="container grid-2" style="padding-top: 4rem;">
                 <div>
-                    <div style="display: inline-block; padding: 0.5rem 1rem; background: var(--surface); color: var(--primary-dark); border-radius: 99px; font-weight: 600; margin-bottom: 1.5rem; box-shadow: var(--clay-shadow);">A Healthier Smile Starts Here</div>
-                    <h1>Your Smile Deserves a Little Extra Love.</h1>
-                    <p style="font-size: 1.125rem; margin-bottom: 2rem;">Experience modern dentistry with gentle care in a relaxing environment. Join thousands of happy patients who trust LumaSmile Dental Studio for their family's oral health.</p>
+                    <div style="display: inline-block; padding: 0.5rem 1rem; background: var(--surface); color: var(--primary-dark); border-radius: 99px; font-weight: 600; margin-bottom: 1.5rem; box-shadow: var(--clay-shadow);">Rated 4.9/5 on Google Reviews</div>
+                    <h1 style="font-size: 3.5rem;">Sparkle Dental Clinic & Implant Centre.</h1>
+                    <p style="font-size: 1.125rem; margin-bottom: 2rem;">Experience modern dentistry with gentle care in Mumbai. Join hundreds of happy patients who trust Dr. Rohit Shah for their family's oral health and advanced implant needs.</p>
                     <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                         <a href="/book-appointment" class="clay-btn">Book Your Visit <i data-lucide="arrow-right"></i></a>
                         <a href="/about" class="clay-btn secondary">Discover Our Clinic</a>
@@ -109,22 +106,28 @@
 
             <section style="background: var(--surface); margin-top: 4rem;">
                 <div class="container text-center">
-                    <h2 style="text-align: center; margin-bottom: 3rem;">Why Choose LumaSmile?</h2>
+                    <h2 style="text-align: center; margin-bottom: 3rem;">What Our Patients Say</h2>
                     <div class="grid-3">
-                        <div class="clay-card" style="text-align: center;">
-                            <i data-lucide="shield-check" style="width:48px;height:48px;color:var(--primary);margin-bottom:1rem;"></i>
-                            <h3>Advanced Hygiene</h3>
-                            <p>We follow strict international sterilization protocols ensuring your complete safety during every visit.</p>
+                        <div class="clay-card" style="text-align: left;">
+                            <div style="color:var(--highlight); margin-bottom:1rem;">
+                                <i data-lucide="star" style="fill:var(--highlight)"></i><i data-lucide="star" style="fill:var(--highlight)"></i><i data-lucide="star" style="fill:var(--highlight)"></i><i data-lucide="star" style="fill:var(--highlight)"></i><i data-lucide="star" style="fill:var(--highlight)"></i>
+                            </div>
+                            <p>"My wife and I would like to express our sincere gratitude for the exceptional dental and implant care we received at Sparkle Dental & Implant Clinic."</p>
+                            <h4 style="margin-top:1rem; color:var(--primary-dark)">- Yamuna Singh</h4>
                         </div>
-                        <div class="clay-card" style="text-align: center;">
-                            <i data-lucide="heart-handshake" style="width:48px;height:48px;color:var(--accent);margin-bottom:1rem;"></i>
-                            <h3>Gentle Care</h3>
-                            <p>Anxiety-free dentistry designed specifically for nervous patients and children.</p>
+                        <div class="clay-card" style="text-align: left;">
+                            <div style="color:var(--highlight); margin-bottom:1rem;">
+                                <i data-lucide="star" style="fill:var(--highlight)"></i><i data-lucide="star" style="fill:var(--highlight)"></i><i data-lucide="star" style="fill:var(--highlight)"></i><i data-lucide="star" style="fill:var(--highlight)"></i><i data-lucide="star" style="fill:var(--highlight)"></i>
+                            </div>
+                            <p>"Visited Dr. Rohit Shah’s clinic for a dental cleaning and had a good experience. He explained the procedure well and educated me about maintaining oral hygiene."</p>
+                            <h4 style="margin-top:1rem; color:var(--primary-dark)">- Samhita Dabak</h4>
                         </div>
-                        <div class="clay-card" style="text-align: center;">
-                            <i data-lucide="microscope" style="width:48px;height:48px;color:var(--secondary);margin-bottom:1rem;"></i>
-                            <h3>Modern Technology</h3>
-                            <p>Equipped with low-radiation digital X-rays and painless treatment technologies.</p>
+                        <div class="clay-card" style="text-align: left;">
+                            <div style="color:var(--highlight); margin-bottom:1rem;">
+                                <i data-lucide="star" style="fill:var(--highlight)"></i><i data-lucide="star" style="fill:var(--highlight)"></i><i data-lucide="star" style="fill:var(--highlight)"></i><i data-lucide="star" style="fill:var(--highlight)"></i><i data-lucide="star" style="fill:var(--highlight)"></i>
+                            </div>
+                            <p>"Excellent experience with Dr. Rohit Shah. He is extremely skilled, professional, and friendly. His way of treating patients makes every visit comfortable. Highly recommended!"</p>
+                            <h4 style="margin-top:1rem; color:var(--primary-dark)">- Anand Shinde</h4>
                         </div>
                     </div>
                 </div>
@@ -133,27 +136,27 @@
         <% } else if (page === 'about') { %>
             <div class="page-header">
                 <div class="container">
-                    <h1>About LumaSmile Dental Studio</h1>
-                    <p style="font-size: 1.25rem; max-width: 600px; margin: 0 auto;">Redefining the dental experience with warmth, technology, and compassion.</p>
+                    <h1>About Sparkle Dental Clinic</h1>
+                    <p style="font-size: 1.25rem; max-width: 600px; margin: 0 auto;">Redefining the dental experience with skill, technology, and compassion in Mumbai.</p>
                 </div>
             </div>
             <section class="container grid-2" style="padding-top:0;">
                 <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80" alt="Modern Dental Clinic" style="width: 100%; border-radius: var(--clay-radius); box-shadow: var(--clay-shadow);">
                 <div>
                     <h2>Our Mission</h2>
-                    <p>At LumaSmile, we believe that a visit to the dentist should not be something you dread. Founded in 2016 by Dr. Aanya Sharma, our clinic was built on the philosophy of "Gentle Dentistry."</p>
-                    <p>We combine state-of-the-art dental technology with a spa-like atmosphere to ensure that every patient feels relaxed, informed, and completely cared for.</p>
+                    <p>At Sparkle Dental Clinic and Implant Centre, we believe that a visit to the dentist should be something you look forward to. Located conveniently near Santacruz Station East, our clinic is built on the philosophy of "Skilled & Gentle Dentistry."</p>
+                    <p>Led by Dr. Rohit Shah, we combine state-of-the-art dental technology with a comfortable atmosphere to ensure that every patient feels relaxed, informed, and completely cared for. From basic cleaning to advanced implantology, we handle it all.</p>
                     <div style="display:flex; gap:2rem; margin-top:2rem;">
-                        <div><h3 style="color:var(--primary-dark); font-size:2rem; margin-bottom:0;">10+</h3><p>Years Experience</p></div>
-                        <div><h3 style="color:var(--primary-dark); font-size:2rem; margin-bottom:0;">2500+</h3><p>Happy Smiles</p></div>
-                        <div><h3 style="color:var(--primary-dark); font-size:2rem; margin-bottom:0;">4.9</h3><p>Star Rating</p></div>
+                        <div><h3 style="color:var(--primary-dark); font-size:2rem; margin-bottom:0;">4.9</h3><p>Google Rating</p></div>
+                        <div><h3 style="color:var(--primary-dark); font-size:2rem; margin-bottom:0;">200+</h3><p>5-Star Reviews</p></div>
+                        <div><h3 style="color:var(--primary-dark); font-size:2rem; margin-bottom:0;">100%</h3><p>Patient Focus</p></div>
                     </div>
                 </div>
             </section>
 
         <% } else if (page === 'services') { %>
             <div class="page-header">
-                <div class="container"><h1>Our Dental Services</h1><p>Comprehensive care for your entire family.</p></div>
+                <div class="container"><h1>Our Dental Services</h1><p>Comprehensive care for your entire family, at affordable prices.</p></div>
             </div>
             <section class="container" style="padding-top:0;">
                 <div class="grid-3">
@@ -163,7 +166,7 @@
                             <h3><%= service.name %></h3>
                             <p><%= service.description %></p>
                             <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.5rem; padding-top:1rem; border-top:1px solid rgba(0,0,0,0.05);">
-                                <strong>₹<%= service.price %></strong>
+                                <strong>Starting at ₹<%= service.price %></strong>
                                 <a href="/book-appointment?service=<%= service._id %>" class="clay-btn outline" style="padding:0.5rem 1rem;">Book</a>
                             </div>
                         </div>
@@ -173,7 +176,7 @@
 
         <% } else if (page === 'dentists') { %>
             <div class="page-header">
-                <div class="container"><h1>Meet Our Specialists</h1><p>Highly qualified professionals dedicated to your smile.</p></div>
+                <div class="container"><h1>Meet Dr. Rohit Shah</h1><p>Highly qualified professional dedicated to your smile.</p></div>
             </div>
             <section class="container" style="padding-top:0;">
                 <div class="grid-3">
@@ -191,16 +194,16 @@
 
         <% } else if (page === 'inquiry') { %>
             <div class="page-header">
-                <div class="container"><h1>Contact & Inquiries</h1><p>Have a question? We are here to help.</p></div>
+                <div class="container"><h1>Contact & Inquiries</h1><p>Have a question or need directions? We are here to help.</p></div>
             </div>
             <section class="container grid-2" style="padding-top:0; align-items:start;">
                 <div>
                     <h2>Get in Touch</h2>
-                    <p>Fill out the form below and our team will get back to you within 24 hours.</p>
+                    <p>Fill out the form and our team will get back to you, or visit us directly at our Santacruz clinic.</p>
                     <div class="clay-card" style="margin-top:2rem;">
-                        <p><strong><i data-lucide="map-pin"></i> Address:</strong> 24 Blossom Avenue, Noida</p>
-                        <p><strong><i data-lucide="phone"></i> Phone:</strong> +91 98765 43210</p>
-                        <p><strong><i data-lucide="clock"></i> Hours:</strong> Mon-Sat, 9:00 AM - 7:00 PM</p>
+                        <p><strong><i data-lucide="map-pin"></i> Address:</strong> Shop No. 5, Omkar/ Shivai Building, Railway Bridge, next to Prabhat Colony Road, Santacruz Station east, Mumbai, Maharashtra 400055</p>
+                        <p><strong><i data-lucide="phone"></i> Phone:</strong> +91 80974 65052</p>
+                        <p><strong><i data-lucide="clock"></i> Hours:</strong> Mon-Sat, 10:00 AM - 8:00 PM</p>
                     </div>
                 </div>
                 <div class="clay-card">
@@ -230,7 +233,7 @@
                         <label style="font-weight:600; margin-bottom:0.5rem; display:block;">1. Select Service</label>
                         <select id="book-service" class="clay-select" required>
                             <option value="">Choose a service...</option>
-                            <% services.forEach(s => { %><option value="<%= s._id %>"><%= s.name %> (₹<%= s.price %>)</option><% }) %>
+                            <% services.forEach(s => { %><option value="<%= s._id %>"><%= s.name %></option><% }) %>
                         </select>
 
                         <label style="font-weight:600; margin-bottom:0.5rem; display:block;">2. Select Dentist</label>
@@ -288,12 +291,12 @@
                 <div class="clay-card">
                     <i data-lucide="check-circle" style="width:80px;height:80px;color:var(--secondary);margin:0 auto 1.5rem auto;display:block;"></i>
                     <h1 style="color:var(--text);">Booking Confirmed!</h1>
-                    <p>Thank you for choosing LumaSmile. Your appointment has been successfully scheduled.</p>
+                    <p>Thank you for choosing Sparkle Dental. Your appointment has been successfully scheduled.</p>
                     <div style="background:var(--surface); padding:1.5rem; border-radius:16px; margin:2rem 0;">
                         <p style="margin:0; font-size:0.875rem; text-transform:uppercase; font-weight:600; color:var(--primary-dark);">Booking Reference</p>
                         <h2 style="margin:0; font-size:2.5rem; letter-spacing:2px;"><%= ref %></h2>
                     </div>
-                    <p style="font-size:0.875rem;">Please keep this reference number safe. You may need it for any future modifications.</p>
+                    <p style="font-size:0.875rem;">Please keep this reference number safe. Our team will contact you shortly.</p>
                     <a href="/" class="clay-btn" style="margin-top:1rem;">Return to Home</a>
                 </div>
             </section>
@@ -303,17 +306,17 @@
     <footer style="background: var(--text); color: #fff; padding: 4rem 0 2rem 0; margin-top: 4rem;">
         <div class="container grid-3">
             <div>
-                <h3 style="color: var(--primary-light);"><i data-lucide="smile"></i> LumaSmile</h3>
-                <p style="color: #9CA3AF; font-size:0.875rem;">Modern Dentistry. Gentle Care. Brighter Smiles.</p>
+                <h3 style="color: var(--primary-light);"><i data-lucide="sparkles"></i> Sparkle Dental</h3>
+                <p style="color: #9CA3AF; font-size:0.875rem;">Sparkle Dental Clinic and Implant Centre (चमक दंत चिकित्सालय). Your smile is our priority.</p>
             </div>
             <div>
-                <h4>Contact Us (Demo)</h4>
-                <p style="color: #9CA3AF; font-size:0.875rem;">24 Blossom Avenue, Noida, UP<br>+91 98765 43210<br>hello@lumasmile.example</p>
+                <h4>Contact Us</h4>
+                <p style="color: #9CA3AF; font-size:0.875rem;">Omkar/Shivai Building, Prabhat Colony, Santacruz East, Mumbai 400055<br>Phone: +91 80974 65052<br></p>
             </div>
             <div>
-                <h4>Legal</h4>
-                <p style="color: #9CA3AF; font-size: 0.75rem;">This is a demonstration project. Do not enter real personal or medical information. © 2026 Fictional Entity.</p>
-                <a href="/admin" style="color: var(--primary-light); text-decoration: none; font-size: 0.875rem;">Admin Dashboard</a>
+                <h4>Quick Links</h4>
+                <a href="/admin" style="color: var(--primary-light); text-decoration: none; font-size: 0.875rem; display:block; margin-bottom:0.5rem;">Admin Dashboard</a>
+                <a href="/privacy-policy" style="color: var(--primary-light); text-decoration: none; font-size: 0.875rem;">Privacy Policy</a>
             </div>
         </div>
     </footer>
@@ -330,13 +333,11 @@
             setTimeout(() => t.classList.remove('show'), 3000);
         }
 
-        // URL Prefills for Book Page
         if (window.location.pathname === '/book-appointment') {
             const params = new URLSearchParams(window.location.search);
             if(params.get('service')) document.getElementById('book-service').value = params.get('service');
             if(params.get('dentist')) document.getElementById('book-dentist').value = params.get('dentist');
             
-            // Set min date
             const today = new Date().toLocaleDateString('en-CA', {timeZone: 'Asia/Kolkata'}); 
             document.getElementById('book-date').min = today;
         }
@@ -392,7 +393,6 @@
             window.location.href = `/patient-information?service=${s}&dentist=${d}&date=${dt}&time=${t}`;
         }
 
-        // Final Book Form Submit
         const finalForm = document.getElementById('final-book-form');
         if (finalForm) {
             finalForm.onsubmit = async (e) => {
@@ -420,7 +420,6 @@
             };
         }
 
-        // Inquiry Form Submit
         const inqForm = document.getElementById('inquiry-form');
         if (inqForm) {
             inqForm.onsubmit = async (e) => {
